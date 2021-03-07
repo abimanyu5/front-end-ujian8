@@ -58,7 +58,8 @@ export default class List extends Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
+        <h1>LIST USERS</h1>
+        <Form onSubmit={this.getDataSearch}>
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Search By : </Form.Label>
             <Form.Control as="select" onChange={this.handleRoute}>
@@ -78,28 +79,38 @@ export default class List extends Component {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onPress={this.getDataSearch}>
+          <Button variant="primary" type="submit">
             SEARCH
           </Button>
         </Form>
-        <div>{this.state.users.map((person) => (
-          <Card style={{ width: "30rem" }}>
-            <Card.Body>
-              <Card.Title>{person.name}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                {person.email}
-              </Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted">
-                {person.phone}
-              </Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted">
-                {person.address}
-              </Card.Subtitle>
-              <Button variant="primary" style={{ width: "5rem" }}>edit</Button>
-              <Button variant="primary" style={{ width: "5rem" }}>delete</Button>
-            </Card.Body>
-          </Card>
-        ))}
+        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+          <div style={{ width: "70%" }}>
+            {this.state.users.map((person) => (
+              <Card orientation="horizontal">
+                <Card.Body>
+                  <Card.Title>{person.name}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {person.email}
+                  </Card.Subtitle>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {person.phone}
+                  </Card.Subtitle>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {person.address}
+                  </Card.Subtitle>
+                  <Button variant="primary" style={{ width: "5rem" }}>
+                    edit
+                  </Button>
+                  <Button
+                    variant="primary"
+                    style={{ width: "5rem", margin: "5px" }}
+                  >
+                    delete
+                  </Button>
+                </Card.Body>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     );

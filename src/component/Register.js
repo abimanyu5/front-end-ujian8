@@ -44,7 +44,7 @@ export default class Register extends Component {
     axios({
       method: "POST",
       url: "https://ujianservice.herokuapp.com/",
-      data: user
+      data: user,
     })
       .then(function (response) {
         console.log(response);
@@ -57,6 +57,7 @@ export default class Register extends Component {
   render() {
     return (
       <div>
+        <h1>REGISTER</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>name</Form.Label>
